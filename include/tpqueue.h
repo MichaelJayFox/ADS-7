@@ -6,7 +6,7 @@
 
 template<typename T>
 class TPQueue {
-  private:
+   private:
     struct Queue{
       T value;
       Queue* next;
@@ -18,9 +18,8 @@ class TPQueue {
         temp->value = value;
         temp->next = NULL;
         return temp;
-    } 
-  
-  public:
+    }
+   public:
     TPQueue() :head(nullptr) {}
     void push(const T&);
     T pop();
