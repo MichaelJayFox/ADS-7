@@ -23,7 +23,16 @@ class TPQueue {
   public:
     TPQueue() :head(nullptr) {}
     void push(const T&);
-    T pop();
+    T pop(){
+      if (Empty()) {
+        throw std::string("Empty!");
+      } else {
+        Queue* tmp = head->next;
+        T i = head->value;
+        delete head;
+        head = tmp;
+        return i;
+      }
     TPQueue() {
       head = nullptr;
     }
@@ -38,19 +47,6 @@ class TPQueue {
        }
     }
 };
-template<typename T>
-T TPQueue<T>::pop() {
-      if (Empty()) {
-        throw std::string("Empty!");
-      } else {
-        Queue* tmp = head->next;
-        T i = head->value;
-        delete head;
-        head = tmp;
-        return i;
-      }
-}  
-
 template<typename T>
 void TPQueue<T>::push(const T& i) {
     if (head == NULL) {
