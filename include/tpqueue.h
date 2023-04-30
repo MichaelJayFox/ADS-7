@@ -19,7 +19,7 @@ class TPQueue {
         temp->next = NULL;
         return temp;
     }
-   
+
  public:
     TPQueue() :head(nullptr) {}
     void push(const T&);
