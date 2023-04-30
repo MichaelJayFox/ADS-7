@@ -1,7 +1,7 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
-
+#include <iostream>
 #include <string>
 
 template<typename T>
@@ -22,7 +22,7 @@ class TPQueue {
   
   public:
     TPQueue() : head(NULL) {}
-    void push(const T& item);
+    void push(const T& val);
     T pop();
     ~TPQueue() {
         while (head) {
@@ -42,7 +42,7 @@ class TPQueue {
         throw std::string("Empty!");
       } else {
         Queue* Queue = head->next;
-        T i = head->val;
+        T i = head->value;
         delete head;
         head = Queue;
         return i;
