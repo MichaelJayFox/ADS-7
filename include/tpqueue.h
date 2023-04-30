@@ -21,20 +21,20 @@ class TPQueue {
     } 
   
   public:
-    TPQueue() : head(nullptr) {}
+    TPQueue() :head(nullptr) {}
     void push(const T&);
     T pop();
     TPQueue() {
       head = nullptr;
     }
     bool Empty() {
-      return head == NULL;
+      return head == nullptr;
     }
     ~TPQueue() {
         while (head) {
-        Queue* tmp = head->next;
-        delete head;
-        head = tmp;
+          Queue* tmp = head->next;
+          delete head;
+          head = tmp;
        }
     }
 };
@@ -49,7 +49,7 @@ T TPQueue<T>::pop() {
         head = tmp;
         return i;
       }
-    }  
+}  
 
 template<typename T>
 void TPQueue<T>::push(const T& i) {
