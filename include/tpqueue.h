@@ -16,26 +16,26 @@ class TPQueue {
     Queue* create(const T& value) {
         Queue* temp = new Queue;
         Queue->value = value;
-        Queue->next = nullptr;
+        Queue->next = NULL;
         return temp;
     } 
   
   public:
-    TPQueue() : head(nullptr) {}
+    TPQueue() : head(NULL) {}
     void push(const T& item);
     T pop();
     ~TPQueue() {
         while (head) {
-        Item* tmp = head->next;
+        Queue* tmp = head->next;
         delete head;
         head = tmp;
        }
     }
     TPQueue() {
-      head = nullptr;
+      head = NULL;
     }
     bool Empty() {
-      return head == nullptr;
+      return head == NULL;
     }
     T pop() {
       if (Empty()) {
@@ -51,10 +51,10 @@ class TPQueue {
 };
 template<typename T>
 void TPQueue<T>::push(const T& i) {
-    if (head == nullptr) {
+    if (head == NULL) {
         head = create(i);
     } else {
-        Item* cur = head;
+        Queue* cur = head;
         int l = 0;
         while (cur) {
             if (cur->value.prior < i.prior) {
@@ -64,7 +64,7 @@ void TPQueue<T>::push(const T& i) {
             l++;
         }
         if (l == 0) {
-            Item* tmp = new Item;
+            Queue* tmp = new Queue;
             tmp->next = head;
             tmp->value = i;
             head = tmp;
@@ -73,7 +73,7 @@ void TPQueue<T>::push(const T& i) {
             for (int k = 1; k < l; k++) {
                 cur = cur->next;
             }
-            Item* tmp = new Item;
+            Queue* tmp = new Queue;
             tmp->next = cur->next;
             tmp->value = i;
             cur->next = tmp;
