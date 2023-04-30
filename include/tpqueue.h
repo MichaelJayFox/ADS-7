@@ -15,8 +15,8 @@ class TPQueue {
     Queue* head;
     Queue* create(const T& value) {
         Queue* temp = new Queue;
-        Queue->value = value;
-        Queue->next = NULL;
+        temp->value = value;
+        temp->next = NULL;
         return temp;
     } 
   
@@ -37,18 +37,20 @@ class TPQueue {
     bool Empty() {
       return head == NULL;
     }
-    T pop() {
+};
+template<typename T>
+T TPQueue<T>::pop() {
       if (Empty()) {
         throw std::string("Empty!");
       } else {
-        Queue* Queue = head->next;
+        Queue* tmp = head->next;
         T i = head->value;
         delete head;
-        head = Queue;
+        head = tmp;
         return i;
       }
     }  
-};
+
 template<typename T>
 void TPQueue<T>::push(const T& i) {
     if (head == NULL) {
